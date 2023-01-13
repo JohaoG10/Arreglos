@@ -1,6 +1,43 @@
 #include<stdio.h>
 
+void find_max(double v1[], int size, double *max, int *maxind) {
+    *max = v1[0];
+    *maxind = 0;
+    for (int i = 1; i < size; i++) {
+        if (v1[i] > *max) {
+            *max = v1[i];
+            *maxind = i;
+        }
+    }
+}
+
+void find_max_index(double v1[], int size, int *maxind) {
+    double max = v1[0];
+    *maxind = 0;
+    for (int i = 1; i < size; i++) {
+        if (v1[i] > max) {
+            max = v1[i];
+            *maxind = i;
+        }
+    }
+}
+
+void find_min(double v1[], int size, double *min, int *minind) {
+    *min = v1[0];
+    *minind = 0;
+    for (int i = 1; i < size; i++) {
+        if (v1[i] < *min) {
+            *min = v1[i];
+            *minind = i;
+        }
+    }
+}
+
+
 int main(){
+
+double max, min;
+int maxind, minind;
 
 double v1[]={
 0.3,
@@ -203,5 +240,12 @@ double v1[]={
 int longitud=sizeof(v1)/sizeof(v1[0]);
 
 printf("el tamaño del vector es: %d",longitud);
+
+find_max(v1,sizeof(v1)/sizeof(v1[0]),&max,&maxind);
+find_max_index(v1,sizeof(v1)/sizeof(v1[0]),&maxind);
+find_min(v1,sizeof(v1)/sizeof(v1[0]),&min,&minind);
+printf("\nThe minimum value is: %lf and it's index is: %d\n",min,minind);
+printf("The maximum value is: %lf and it's index is: %d\n\n",max,maxind);
+
 
 }
