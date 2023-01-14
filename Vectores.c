@@ -1,43 +1,24 @@
 #include<stdio.h>
 
-void find_max(double v1[], int size, double *max, int *maxind) {
-    *max = v1[0];
-    *maxind = 0;
-    for (int i = 1; i < size; i++) {
-        if (v1[i] > *max) {
-            *max = v1[i];
-            *maxind = i;
+void mayor(double v1[], int size, float *sum) {
+    printf("Los numeros mayores 1 son: %d\n");
+    for (int i = 0; i < size; i++) {
+        if (v1[i] > 1) {
+            printf("%lf\n",v1[i]);
+            
         }
     }
-}
-
-void find_max_index(double v1[], int size, int *maxind) {
-    double max = v1[0];
-    *maxind = 0;
-    for (int i = 1; i < size; i++) {
-        if (v1[i] > max) {
-            max = v1[i];
-            *maxind = i;
-        }
+    printf("La media aritmetica del vector es: \n");
+    *sum=0;
+    for(int i =0; i<size; i++){
+        *sum=*sum+v1[i];
     }
+    *sum=*sum/size;
 }
-
-void find_min(double v1[], int size, double *min, int *minind) {
-    *min = v1[0];
-    *minind = 0;
-    for (int i = 1; i < size; i++) {
-        if (v1[i] < *min) {
-            *min = v1[i];
-            *minind = i;
-        }
-    }
-}
-
 
 int main(){
 
-double max, min;
-int maxind, minind;
+float sum;
 
 double v1[]={
 0.3,
@@ -239,13 +220,10 @@ double v1[]={
 
 int longitud=sizeof(v1)/sizeof(v1[0]);
 
-printf("el tamaño del vector es: %d",longitud);
-
-find_max(v1,sizeof(v1)/sizeof(v1[0]),&max,&maxind);
-find_max_index(v1,sizeof(v1)/sizeof(v1[0]),&maxind);
-find_min(v1,sizeof(v1)/sizeof(v1[0]),&min,&minind);
-printf("\nThe minimum value is: %lf and it's index is: %d\n",min,minind);
-printf("The maximum value is: %lf and it's index is: %d\n\n",max,maxind);
+printf("el tamano del vector es: %d \n",longitud);
+mayor(v1, longitud, &sum);
+printf("%f",sum);
 
 
 }
+
