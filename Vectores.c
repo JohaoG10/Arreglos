@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 void mayor(double v1[], int size, float *sum) {
-    printf("Los numeros mayores 1 son: %d\n");
+    printf("Los numeros mayores 1 son: \n");
     for (int i = 0; i < size; i++) {
         if (v1[i] > 1) {
             printf("%lf\n",v1[i]);
